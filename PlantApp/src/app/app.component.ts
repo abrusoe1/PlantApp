@@ -12,10 +12,15 @@ export class AppComponent {
   plants:Plant[] = [];
   constructor(private API:PlantsService){}
 
-  loadMembers():void{
+  ngOnInit(){
+    this.loadPlants();
+  }
+
+  loadPlants():void{
     this.API.getAllPlants().subscribe(
       (result) => {
         this.plants = result;
+        console.log(this.plants);
       }
     )
   }
