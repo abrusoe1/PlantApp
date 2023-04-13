@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PlantsService } from './plants.service';
+import { Plant } from './plant';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PlantApp';
+  plants:Plant[] = [];
+  constructor(private API:PlantsService){}
+
+  loadMembers():void{
+    this.API.getAllPlants().subscribe(
+      (result) => {
+        this.plants = result;
+      }
+    )
+  }
 }
