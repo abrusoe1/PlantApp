@@ -54,3 +54,4 @@ export enum Watering {
     Frequent = "Frequent",
     Minimal = "Minimal",
 }
+
