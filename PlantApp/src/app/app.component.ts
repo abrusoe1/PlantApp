@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PlantsService } from './plants.service';
-import { Plant } from './plant';
+import { Datum, Plant } from './plant';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +9,31 @@ import { Plant } from './plant';
 })
 export class AppComponent {
   title = 'PlantApp';
-  plants:Plant[] = [];
-  constructor(private API:PlantsService){}
+  plants:Plant = ({} as any) as Plant;
+  data:Datum[] = [];
+  constructor(private API:PlantsService){
+  
+
+  }
 
   ngOnInit(){
     this.loadPlants();
   }
 
   loadPlants():void{
-    this.API.getAllPlants().subscribe(
-      (result) => {
+    this.API.getAllPlantNames().subscribe(
+      (result: Plant) => {
         this.plants = result;
-        console.log(this.plants);
+        this.plants.current_page = 100;
+        this.plants.from = 6000;
+        this.plants.to = 6000;
+        this.plants.per_page = 6000;
+        this.plants.data.splice(6000);
+        console.log(this.plants.data);
       }
     )
+    //this.data = this.plants.data;
+    //console.log(this.plants.data);
+    
   }
 }
