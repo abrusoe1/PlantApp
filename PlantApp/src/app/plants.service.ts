@@ -7,11 +7,15 @@ import { Plant } from './plant';
   providedIn: 'root'
 })
 export class PlantsService {
-  url:string = "https://perenual.com/api/species-list?key=sk-zKUS64374955e6d69502"
+  url:string = "https://perenual.com/api/species-list?key=sk-zKUS64374955e6d69502&page="
 
   constructor(private http:HttpClient) { }
 
-  getAllPlants():Observable<Plant[]> {
-    return this.http.get<Plant[]> (this.url);
+  getAllPlantNames():Observable<Plant> {
+    let plant:Plant;
+    for (let i = 1; i < 201; i++) {
+    plant = this.http.get<Plant> (this.url + i);
   }
+ 
+}
 }
