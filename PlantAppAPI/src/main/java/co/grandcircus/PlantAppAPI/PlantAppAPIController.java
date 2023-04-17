@@ -36,7 +36,7 @@ public class PlantAppAPIController {
 	//C(R)UD -- Read One
 	@GetMapping("/plants/{id}")
 	public Plant readOne(@PathVariable("id") Long id) {
-		return repo.findById(id);
+		return repo.findById(id).orElseThrow(() -> new PlantNotFoundException(id) );
 	}
 		
 	//(C)RUD -- Create
