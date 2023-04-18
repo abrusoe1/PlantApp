@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Datum, Plant } from './plant';
+import { Datum, Plant, Watering } from './plant';
 import { PersonalPlant } from './personal-plant';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class PlantsService {
 
   getPlant(id:number):Observable<Datum> {
     return this.http.get<Datum>(this.url + "/"+id);
+  }
+
+  getWater(watering:Watering):Observable<Datum> {
+    return this.http.get<Datum>(this.url + "/" + watering)
   }
 
   //-------------------------------------------------------

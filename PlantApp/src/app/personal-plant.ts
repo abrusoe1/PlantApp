@@ -1,5 +1,6 @@
 export interface PersonalPlant {
     id:              number;
+    nickname:        string;
     common_name:     string;
     scientific_name: string;  //May need to be array to match other model
     other_name:      string;  //May need to be array to match other model
