@@ -1,5 +1,9 @@
 <h1>I Wet My Plants!</h1>
 
-<div *ngFor="let p of plants.data">
+<app-calendar></app-calendar>
+
+<div *ngFor="let p of data">
   <p>Test name: {{p.common_name}}</p>
 </div>
+
+<app-plant-search></app-plant-search>

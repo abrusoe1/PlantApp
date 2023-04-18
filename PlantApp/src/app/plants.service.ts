@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Datum, Plant } from './plant';
+import { Datum, Plant, Watering } from './plant';
+import { PersonalPlant } from './personal-plant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlantsService {
   url:string = "https://perenual.com/api/species-list?key=sk-zKUS64374955e6d69502"
-  lUrl:string = "http://localhost:8080/"  //Short for local URL
   constructor(private http:HttpClient) { }
-
-  //TODO: Change location of StudyBuddyFav to whatever is appropriate once we figure that out
 
   getAllPlantNames():Observable<Datum[]> {
     return this.http.get<Datum[]> (this.url);
@@ -21,12 +19,20 @@ export class PlantsService {
     return this.http.get<Datum>(this.url + "/"+id);
   }
 
-  getAllPersonal():Observable<StudyBuddyFav[]> {
-    return this.http.get<StudyBuddyFav[]> (this.lUrl); 
+  getWater(watering:Watering):Observable<Datum> {
+    return this.http.get<Datum>(this.url + "/" + watering)
   }
 
-  getPersonal(id:number):Observable<StudyBuddyFav> {
-    return this.http.get<StudyBuddyFav>(this.lUrl + "/"+id);
+  //-------------------------------------------------------
+
+  lUrl:string = "http://localhost:8080"  //Short for local URL
+
+  getAllPersonal():Observable<PersonalPlant[]> {
+    return this.http.get<PersonalPlant[]> (this.lUrl); 
+  }
+
+  getPersonal(id:number):Observable<PersonalPlant> {
+    return this.http.get<PersonalPlant>(this.lUrl + "/"+id);
   }
 
   deletePersonal(id:number):Observable<void> {
@@ -35,7 +41,7 @@ export class PlantsService {
     
   }
 
-  addToPersonal(newFavorite:StudyBuddyFav):Observable<Object> {
+  addToPersonal(newFavorite:PersonalPlant):Observable<Object> {
     return this.http.post(this.lUrl, newFavorite);
   }
 }
