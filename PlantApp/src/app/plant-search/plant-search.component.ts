@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PlantsService } from '../plants.service';
-import { Datum, Plant } from '../plant';
+import { Datum, Plant, Watering } from '../plant';
 
 @Component({
   selector: 'app-plant-search',
@@ -29,7 +29,11 @@ export class PlantSearchComponent {
   }
 
   loadFrq():void{
-    this.API.getWater()
+    for (let i = 1; i < this.data.length; i++){
+      if (this.data[i].watering === "Frequent"){
+        
+      }
+    }
   }
 
   loadAvg():void{
@@ -37,7 +41,7 @@ export class PlantSearchComponent {
   }
 
   loadMin():void{
-    
+
   }
 
   searchRecommended():void{
