@@ -8,7 +8,7 @@ import { Datum, Plant } from '../plant';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent {
-  plants:Plant = ({} as any) as Plant;
+  plants:Datum = ({} as any) as Datum;
   data:Datum[] = [];
   constructor(private API:PlantsService){}
 
@@ -18,9 +18,8 @@ export class CalendarComponent {
 
   loadPlants():void{
     this.API.getAllPlantNames().subscribe(
-      (result: Plant) => {
-        this.plants = result;
-        console.log(this.plants);
+      (result) => {
+        this.data = result;
       }
     )
   }
