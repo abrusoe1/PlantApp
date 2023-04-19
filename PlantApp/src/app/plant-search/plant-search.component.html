@@ -1,1 +1,13 @@
-<p>plant-search works!</p>
+<h2>Dr. D's Plant Searchinator</h2>
+
+<p>How often do you want to have a wet spot in your plants?</p>
+<form>
+    <input type="radio" id="Frequently" name="freq" value="Daily" [(ngModel)]="frqIsChecked">
+    <label for="Frequently">Daily</label><br/>
+    <input type="radio" id="Average" name="freq" value="Every few days" [(ngModel)]="avgIsChecked">
+    <label for="Average">Every few days</label><br/>
+    <input type="radio" id="Minimal" name="freq" value="Every week or two" [(ngModel)]="minIsChecked">
+    <label for="Minimal">Every week or two</label><br/>
+    <input type="radio" id="All" name="freq" value="Shut up and show me everything" [(ngModel)]="allIsChecked">
+    <label for="All">Shut up and show me everything</label>
+</form>

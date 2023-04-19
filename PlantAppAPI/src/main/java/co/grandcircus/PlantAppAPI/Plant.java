@@ -10,6 +10,7 @@ public class Plant {
 	
 	@Id
 	long id;
+	String nickname;
 	String commonName;
 	String scientificName;
 	String otherName;
@@ -18,8 +19,9 @@ public class Plant {
 	
 	public Plant() {}
 	
-	public Plant(long id, String commonName, String scientificName, String otherName, String watering) {
+	public Plant(long id, String nickname, String commonName, String scientificName, String otherName, String watering) {
 		this.id = id;
+		this.nickname = nickname;
 		this.commonName = commonName;
 		this.scientificName = scientificName;
 		this.watering = watering;

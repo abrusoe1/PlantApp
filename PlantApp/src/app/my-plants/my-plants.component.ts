@@ -18,9 +18,8 @@ export class MyPlantsComponent {
 
   loadPlants():void{
     this.API.getAllPlantNames().subscribe(
-      (result: Plant) => {
-        this.plants = result;
-        console.log(this.plants);
+      (result) => {
+        this.data = result;
       }
     )
   }
