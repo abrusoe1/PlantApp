@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlantsService } from '../plants.service';
 import { Datum, Plant } from '../plant';
+import { PersonalPlant } from '../personal-plant';
 
 @Component({
   selector: 'app-my-plants',
@@ -8,21 +9,30 @@ import { Datum, Plant } from '../plant';
   styleUrls: ['./my-plants.component.css']
 })
 export class MyPlantsComponent {
-  plants:Plant = ({} as any) as Plant;
-  data:Datum[] = [];
+  newPersonalPlants:PersonalPlant = ({} as any) as PersonalPlant;
+  personalPlantData:PersonalPlant[] = [];
   constructor(private API:PlantsService){}
 
   ngOnInit(){
-    this.loadPlants();
+    this.loadPersonal();
   }
 
-  loadPlants():void{
-    this.API.getAllPlantNames().subscribe(
+  loadPersonal():void{
+    this.API.getAllPersonal().subscribe(
       (result) => {
-        this.data = result;
+        this.personalPlantData = result;
       }
     )
   }
+  
+  deletePersonal(id:number):void{
+    this.API.deletePersonal(id).subscribe(
+      (result)=>{
+        console.log('Item delted at ' + id)
+        this.loadPersonal;
+      }
+    );
+  }
+  
+  //addPersonal here later
 }
-
-
