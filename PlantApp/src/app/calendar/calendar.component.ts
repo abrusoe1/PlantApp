@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlantsService } from '../plants.service';
 import { Datum, Plant } from '../plant';
+import { PersonalPlant } from '../personal-plant';
 
 @Component({
   selector: 'app-calendar',
@@ -10,16 +11,18 @@ import { Datum, Plant } from '../plant';
 export class CalendarComponent {
   plants:Datum = ({} as any) as Datum;
   data:Datum[] = [];
+  personalPlantData:PersonalPlant[] = [];
+
   constructor(private API:PlantsService){}
 
   ngOnInit(){
-    this.loadPlants();
+    this.loadPersonal();
   }
 
-  loadPlants():void{
-    this.API.getAllPlantNames().subscribe(
+  loadPersonal():void{
+    this.API.getAllPersonal().subscribe(
       (result) => {
-        this.data = result;
+        this.personalPlantData = result;
       }
     )
   }

@@ -8,7 +8,7 @@ import { Datum, Plant, Watering } from '../plant';
   styleUrls: ['./plant-search.component.css']
 })
 export class PlantSearchComponent {
-  plants:Plant = ({} as any) as Plant;
+  plants:Plant[] = [];
   data:Datum[] = [];
   frqIsChecked: boolean = false;
   avgIsChecked: boolean = false;
@@ -17,15 +17,21 @@ export class PlantSearchComponent {
   constructor(private API:PlantsService){}
 
   ngOnInit(){
-    this.loadPlants();
+    this.loadPages();
   }
 
-  loadPlants():void{
-    this.API.getAllPlantNames().subscribe(
+  loadPages():void{
+    for(let i = 1; i<201; i++){
+    this.API.getPage(i).subscribe(
       (result) => {
-        this.data = result;
+        this.plants.push(result);
+       
       }
     )
+    //this.data = this.plants.data;
+    
+    } 
+    console.log(this.data);
   }
 
   loadFrq():void{
@@ -55,7 +61,7 @@ export class PlantSearchComponent {
 
     }
     else if (this.allIsChecked === true){
-      this.loadPlants();
+      this.loadPages();
     }
     else {
       console.log("How did you get here?");

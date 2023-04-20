@@ -55,3 +55,8 @@ export enum Watering {
     Minimal = "Minimal",
 }
 
+export class Convert {
+    public static toPlant(json:string):Datum[]{
+        return JSON.parse(json);
+    }
+}
