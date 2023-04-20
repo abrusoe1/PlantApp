@@ -8,24 +8,24 @@ import { PersonalPlant } from './personal-plant';
   providedIn: 'root'
 })
 export class PlantsService {
-  url:string = "https://perenual.com/api/species-list?key=sk-zKUS64374955e6d69502"
+  url:string = "http://localhost:8080/data"
   constructor(private http:HttpClient) { }
 
-  getAllPlantNames():Observable<Datum[]> {
-    return this.http.get<Datum[]> (this.url);
+  // getAllPlantNames():Observable<Datum[]> {
+  //   return this.http.get<Datum[]> (this.url);
+  // }
+
+  getPage(page:number):Observable<Plant> {
+    return this.http.get<Plant>(this.url + "/"+page);
   }
 
-  getPlant(id:number):Observable<Datum> {
-    return this.http.get<Datum>(this.url + "/"+id);
-  }
-
-  getWater(watering:Watering):Observable<Datum> {
-    return this.http.get<Datum>(this.url + "/" + watering)
-  }
+  // getWater(watering:Watering):Observable<Datum> {
+  //   return this.http.get<Datum>(this.url + "/" + watering)
+  // }
 
   //-------------------------------------------------------
 
-  lUrl:string = "http://localhost:8080"  //Short for local URL
+  lUrl:string = "http://localhost:8080/plants"  //Short for local URL
 
   getAllPersonal():Observable<PersonalPlant[]> {
     return this.http.get<PersonalPlant[]> (this.lUrl); 
