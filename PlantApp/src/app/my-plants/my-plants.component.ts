@@ -34,5 +34,8 @@ export class MyPlantsComponent {
     );
   }
   
-  //addPersonal here later
+  addPersonal(newPersonalPlants:PersonalPlant){
+    this.personalPlantData.push(newPersonalPlants);
+    this.loadPersonal();
+  }
 }
