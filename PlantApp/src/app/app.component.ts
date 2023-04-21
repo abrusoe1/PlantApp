@@ -21,7 +21,7 @@ export class AppComponent {
   }
 
   loadPages():void{
-    for(let i = 1; i<201; i++){
+    for(let i = 1; i<5; i++){
     this.API.getPage(i).subscribe(
       (result) => {
         this.plants.push(result);
@@ -30,14 +30,13 @@ export class AppComponent {
     )
     //this.data = this.plants.data;
     
-    } 
+    } console.log(this.plants);
     for(let i = 0;i<this.plants.length;i++){
       for(let j = 0; j<this.plants[i].data.length;j++){
-      this.aData = this.plants[i].data[j];
-      this.data.push(this.aData);
-
+      this.data.push(this.plants[i].data[j]);
+      
       }
     }
-    console.log(this.plants);
+    
   }
 }
