@@ -15,27 +15,41 @@ export class AppComponent {
   constructor(private API:PlantsService){
 
   }
-
+  plantArray = [];
   ngOnInit(){
     this.loadPages();
   }
 
+  
+//optimize after MVP
   loadPages():void{
-    for(let i = 1; i<5; i++){
+    for(let i = 1; i<201; i++){
     this.API.getPage(i).subscribe(
       (result) => {
         this.plants.push(result);
-       
+       console.log(this.plants.length);
+       for(let i = 0; i<this.plants.length; i++){
+         for(let j = 0; j<this.plants[i].data.length;j++){
+          this.data.push(this.plants[i].data[j]);
+       }
       }
+    }
     )
+   
     //this.data = this.plants.data;
     
-    } console.log(this.plants);
-    for(let i = 0;i<this.plants.length;i++){
-      for(let j = 0; j<this.plants[i].data.length;j++){
-      this.data.push(this.plants[i].data[j]);
+    // } console.log(this.plantArray.length);
+    
+    // let plantP = this.plants;
+    // console.log(plantP.length)
+    // for(let i = 0; i<plantP.length; i++){
+    //   let p = 0;
+    //   p += i;
+    //   // for(let j = 0; j<this.plants[i].data.length;j++){
+    //   // this.data.push(this.plants[i].data[j]);
+    //   console.log(p);
       
-      }
+    //   // }
     }
     
   }
