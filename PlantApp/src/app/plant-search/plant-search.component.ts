@@ -20,45 +20,71 @@ export class PlantSearchComponent {
     this.loadPages();
   }
 
+
   loadPages():void{
     for(let i = 1; i<201; i++){
     this.API.getPage(i).subscribe(
       (result) => {
         this.plants.push(result);
-       
+       console.log(this.plants.length);
+       for(let i = 0; i<this.plants.length; i++){
+         for(let j = 0; j<this.plants[i].data.length;j++){
+          this.data.push(this.plants[i].data[j]);
+       }
       }
-    )
+    }
+  )
+}
+}
+
+
+  // loadPages():void{
+  //   for(let i = 1; i<201; i++){
+  //   this.API.getPage(i).subscribe(
+  //     (result) => {
+  //       this.plants.push(result);
+       
+  //     }
+  //   )
     //this.data = this.plants.data;
     
-    } 
-    console.log(this.data);
-  }
+    
+  //  console.log(this.data);
+
 
   loadFrq():void{
     for (let i = 1; i < this.data.length; i++){
       if (this.data[i].watering === "Frequent"){
-        
+        console.log(this.data)
       }
     }
   }
 
   loadAvg():void{
-
+    for (let i = 1; i < this.data.length; i++){
+      if (this.data[i].watering === "Average"){
+        console.log(this.data)
+      }
+    }
   }
 
   loadMin():void{
-
+    for (let i = 1; i < this.data.length; i++){
+      if (this.data[i].watering === "Minimal"){
+        console.log(this.data)
+      }
+    }
   }
 
   searchRecommended():void{
     if (this.frqIsChecked === true){
-
+      this.loadFrq()
     }
     else if (this.avgIsChecked === true){
-
+      this.loadAvg()
     }
     else if (this.minIsChecked === true){
-
+      this.loadMin()
     }
     else if (this.allIsChecked === true){
       this.loadPages();
