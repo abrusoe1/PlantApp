@@ -1,1 +1,8 @@
-<p>my-plants works!</p>
+<p>My Plant List</p>
+
+<div *ngFor="let d of personalPlantData">
+    <p>Common Name: {{d.common_name}}</p>
+    <p>Scientific Name: {{d.scientific_name}}</p>
+    <p>Nickname: {{d.nickname}}</p>
+    <p>Watering: {{d.watering}}</p>
+</div>

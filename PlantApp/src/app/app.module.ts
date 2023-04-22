@@ -6,6 +6,14 @@ import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MyPlantsComponent } from './my-plants/my-plants.component';
 import { PlantSearchComponent } from './plant-search/plant-search.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {path:"my-plants", component: MyPlantsComponent},
+  {path:"plant-search", component: PlantSearchComponent},
+  {path:"calendar-component", component: CalendarComponent},
+  {path:"", redirectTo:"plants", pathMatch:"full"}
+]
 
 @NgModule({
   declarations: [
@@ -17,7 +25,8 @@ import { PlantSearchComponent } from './plant-search/plant-search.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
 
   ],
   providers: [],
