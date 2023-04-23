@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PlantsService } from '../plants.service';
 import { Datum, Plant, Watering } from '../plant';
+import { PersonalPlant } from '../personal-plant';
 
 @Component({
   selector: 'app-plant-search',
@@ -8,8 +9,10 @@ import { Datum, Plant, Watering } from '../plant';
   styleUrls: ['./plant-search.component.css']
 })
 export class PlantSearchComponent {
+  @Output() personalQSave = new EventEmitter<PersonalPlant>();
   plants:Plant[] = [];
   data:Datum[] = [];
+  newPersonal:PersonalPlant = ({} as any) as PersonalPlant;
   frqIsChecked: boolean = false;
   avgIsChecked: boolean = false;
   minIsChecked: boolean = false;
@@ -92,5 +95,23 @@ export class PlantSearchComponent {
     else {
       console.log("How did you get here?");
     }
+  }
+
+  addPersonalPlant(id:number){
+    for (let i = 0; i<this.data.length; i++){
+      if(this.data[i].id===id){
+        this.newPersonal = this.data[i];
+        const d = new Date()
+        let da:number = d.getDay()
+        this.newPersonal.day = da;
+      }
+    }
+    this.API.addToPersonal(this.newPersonal).subscribe(
+      () => {
+        this.personalQSave.emit(this.newPersonal);
+        this.newPersonal = ({} as any) as PersonalPlant;
+      }
+    );
+
   }
 }
