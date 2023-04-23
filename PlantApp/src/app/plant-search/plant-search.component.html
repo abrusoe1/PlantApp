@@ -15,7 +15,7 @@
 </form>
 
 
-<p>Suggested Plants</p>
+<p>Suggested Plants</p> <!--Get rid of this later (ngIf with a bunch of || ought to do it)-->
 <div *ngIf = "frqIsChecked == true" >
     <div *ngFor="let f of frqArray">
         <p>Common Name: {{f.common_name}}</p>
