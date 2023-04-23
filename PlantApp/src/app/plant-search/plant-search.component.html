@@ -2,14 +2,46 @@
 
 <p>How often are you able to water your plants?</p>
 <form>
-    <input type="radio" id="Frequent" name="freq" value="Daily" [(ngModel)]="frqIsChecked">
+    <input type="checkbox" id="Frequent" name="freq" [value]="true" [(ngModel)]="frqIsChecked" [checked]="true">
     <label for="Frequent">Daily</label><br/>
-    <input type="radio" id="Average" name="freq" value="Every few days" [(ngModel)]="avgIsChecked">
+    <input type="checkbox" id="Average" name="freq" [value]="true" [(ngModel)]="avgIsChecked" [checked]="true">
     <label for="Average">Every few days</label><br/>
-    <input type="radio" id="Minimal" name="freq" value="Every week or two" [(ngModel)]="minIsChecked">
+    <input type="checkbox" id="Minimal" name="freq" [value]="true" [(ngModel)]="minIsChecked" [checked]="true">
     <label for="Minimal">Every week or two</label><br/>
-    <input type="radio" id="All" name="freq" value="Any Time" [(ngModel)]="allIsChecked">
-    <label for="All">Any Time</label>
+    <!-- <input type="radio" id="All" name="freq" [value]="true" [(ngModel)]="allIsChecked" [checked]="true">
+    <label for="All">Any Time</label> -->
     <br/><br/>
-    <button (click)="loadPages()">See Recommended Plants</button>
+    <button (click)="searchRecommended()">See Recommended Plants</button>
 </form>
+
+
+<p>Suggested Plants</p>
+<div *ngIf = "frqIsChecked == true" >
+    <div *ngFor="let f of frqArray">
+        <p>Common Name: {{f.common_name}}</p>
+        <p>Scientific Name: {{f.scientific_name}}</p>
+        <button (click)="addPersonalPlant(f.id)">Add to My Plants</button>
+    </div>
+</div>
+<div *ngIf = "avgIsChecked == true" >
+    <div *ngFor="let a of avgArray">
+        <p>Common Name: {{a.common_name}}</p>
+        <p>Scientific Name: {{a.scientific_name}}</p>
+        <button (click)="addPersonalPlant(a.id)">Add to My Plants</button>
+    </div>
+</div>
+<div *ngIf = "minIsChecked == true" >
+    <div *ngFor="let m of minArray">
+        <p>Common Name: {{m.common_name}}</p>
+        <p>Scientific Name: {{m.scientific_name}}</p>
+        <button (click)="addPersonalPlant(m.id)">Add to My Plants</button>
+    </div>
+</div>
+<div *ngIf = "allIsChecked == true" >
+    <div *ngFor="let d of data">
+        <p>Common Name: {{d.common_name}}</p>
+        <p>Scientific Name: {{d.scientific_name}}</p>
+        <p>Watering: {{d.watering}}</p>
+        <button (click)="addPersonalPlant(d.id)">Add to My Plants</button>
+    </div>
+</div>
