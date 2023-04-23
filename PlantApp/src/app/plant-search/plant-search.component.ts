@@ -109,6 +109,7 @@ export class PlantSearchComponent {
         const d = new Date()
         let da:number = d.getDay()
         this.newPersonal.day = da;
+        console.log(this.newPersonal)
       }
     }
     this.API.addToPersonal(this.newPersonal).subscribe(
