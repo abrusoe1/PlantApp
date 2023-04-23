@@ -12,6 +12,10 @@ export class PlantSearchComponent {
   @Output() personalQSave = new EventEmitter<PersonalPlant>();
   plants:Plant[] = [];
   data:Datum[] = [];
+  frqArray:Datum[] = [];
+  avgArray:Datum[] = [];
+  minArray:Datum[] = [];
+
   newPersonal:PersonalPlant = ({} as any) as PersonalPlant;
   frqIsChecked: boolean = false;
   avgIsChecked: boolean = false;
@@ -25,11 +29,11 @@ export class PlantSearchComponent {
 
 
   loadPages():void{
-    for(let i = 1; i<201; i++){
+    for(let i = 1; i<101; i++){
     this.API.getPage(i).subscribe(
       (result) => {
         this.plants.push(result);
-       console.log(this.plants.length);
+       //console.log(this.plants.length);
        for(let i = 0; i<this.plants.length; i++){
          for(let j = 0; j<this.plants[i].data.length;j++){
           this.data.push(this.plants[i].data[j]);
@@ -55,18 +59,19 @@ export class PlantSearchComponent {
   //  console.log(this.data);
 
 
-  loadFrq():void{
+  loadFrq(): void{
     for (let i = 1; i < this.data.length; i++){
       if (this.data[i].watering === "Frequent"){
-        console.log(this.data)
+        this.frqArray.push(this.data[i]);
+      }
       }
     }
-  }
+    
 
   loadAvg():void{
     for (let i = 1; i < this.data.length; i++){
       if (this.data[i].watering === "Average"){
-        console.log(this.data)
+        this.avgArray.push(this.data[i]);
       }
     }
   }
@@ -74,7 +79,7 @@ export class PlantSearchComponent {
   loadMin():void{
     for (let i = 1; i < this.data.length; i++){
       if (this.data[i].watering === "Minimal"){
-        console.log(this.data)
+        this.minArray.push(this.data[i])
       }
     }
   }
