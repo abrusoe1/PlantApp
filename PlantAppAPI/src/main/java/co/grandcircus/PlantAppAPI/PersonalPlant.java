@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Plant {
+public class PersonalPlant {
 	
 	@Id
 	long id;
@@ -15,16 +15,19 @@ public class Plant {
 	String scientificName;
 	String otherName;
 	String watering;
+	Integer day;
 	//May add other stuff later
 	
-	public Plant() {}
+	public PersonalPlant() {}
 	
-	public Plant(long id, String nickname, String commonName, String scientificName, String otherName, String watering) {
+	public PersonalPlant(long id, String nickname, String commonName, String scientificName, String otherName, String watering, Integer day) {
 		this.id = id;
 		this.nickname = nickname;
 		this.commonName = commonName;
 		this.scientificName = scientificName;
+		this.otherName = otherName;
 		this.watering = watering;
+		this.day = day;
 	}
 
 	public long getId() {
@@ -67,9 +70,28 @@ public class Plant {
 		this.watering = watering;
 	}
 
+	
+	
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public Integer getDay() {
+		return day;
+	}
+
+	public void setDay(Integer day) {
+		this.day = day;
+	}
+
 	@Override
 	public String toString() {
-		return "Plant [id=" + id + ", commonName=" + commonName + ", scientificName=" + scientificName + ", otherName="
-				+ otherName + ", watering=" + watering + "]";
+		return "PersonalPlant [id=" + id + ", nickname=" + nickname + ", commonName=" + commonName + ", scientificName="
+				+ scientificName + ", otherName=" + otherName + ", watering=" + watering + ", day=" + day + "]";
 	}
+
 }

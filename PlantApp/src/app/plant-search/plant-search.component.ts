@@ -105,15 +105,22 @@ export class PlantSearchComponent {
   addPersonalPlant(id:number){
     for (let i = 0; i<this.data.length; i++){
       if(this.data[i].id===id){
-        this.newPersonal = this.data[i];
+        this.newPersonal.nickname = "placeholder";
+        this.newPersonal.id = this.data[i].id;
+        this.newPersonal.common_name = this.data[i].common_name;
+        this.newPersonal.scientific_name = this.data[i].scientific_name;
+        this.newPersonal.other_name = this.data[i].other_name;
+        this.newPersonal.watering = this.data[i].watering;
         const d = new Date()
         let da:number = d.getDay()
         this.newPersonal.day = da;
+        console.log(this.newPersonal)
       }
     }
     this.API.addToPersonal(this.newPersonal).subscribe(
-      () => {
-        this.personalQSave.emit(this.newPersonal);
+      (result:any) => {
+        this.newPersonal = result;
+        // this.personalQSave.emit(this.newPersonal);
         this.newPersonal = ({} as any) as PersonalPlant;
       }
     );

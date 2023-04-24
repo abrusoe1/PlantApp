@@ -23,7 +23,7 @@ export class AppComponent {
   
 //optimize after MVP
   loadPages():void{
-    for(let i = 1; i<101; i++){
+    for(let i = 1; i<21; i++){
     this.API.getPage(i).subscribe(
       (result) => {
         this.plants.push(result);
