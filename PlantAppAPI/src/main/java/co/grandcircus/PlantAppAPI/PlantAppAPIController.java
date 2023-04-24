@@ -29,20 +29,20 @@ public class PlantAppAPIController {
 	}
 	
 	@GetMapping("/plants")
-	public List<Plant> readAll(){
+	public List<PersonalPlant> readAll(){
 		return repo.findAll();
 	}
 	
 	//C(R)UD -- Read One
 	@GetMapping("/plants/{id}")
-	public Plant readOne(@PathVariable("id") Long id) {
+	public PersonalPlant readOne(@PathVariable("id") Long id) {
 		return repo.findById(id).orElseThrow(() -> new PlantNotFoundException(id) );
 	}
 		
 	//(C)RUD -- Create
 	@PostMapping("/plants")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Plant create(@RequestBody Plant sb) {
+	public PersonalPlant create(@RequestBody PersonalPlant sb) {
 		repo.save(sb);
 		return sb;
 	}
@@ -56,7 +56,7 @@ public class PlantAppAPIController {
 	
 	//CR(U)D -- Update
 	@PutMapping("/plants/{id}")
-	public Plant update(@PathVariable("id") Long id, @RequestBody Plant plant) {
+	public PersonalPlant update(@PathVariable("id") Long id, @RequestBody PersonalPlant plant) {
 		plant.setId(id);
 		return repo.save(plant);
 	}
