@@ -108,8 +108,9 @@ export class PlantSearchComponent {
         this.newPersonal.nickname = "placeholder";
         this.newPersonal.id = this.data[i].id;
         this.newPersonal.common_name = this.data[i].common_name;
-        this.newPersonal.scientific_name = this.data[i].scientific_name;
-        this.newPersonal.other_name = this.data[i].other_name;
+
+        this.newPersonal.scientific_name = this.data[i].scientific_name.join(", ");
+        this.newPersonal.other_name = this.data[i].other_name.join(", ");
         this.newPersonal.watering = this.data[i].watering;
         const d = new Date()
         let da:number = d.getDay()
