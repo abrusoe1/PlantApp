@@ -43,6 +43,7 @@ public class PlantAppAPIController {
 	@PostMapping("/plants")
 	@ResponseStatus(HttpStatus.CREATED)
 	public PersonalPlant create(@RequestBody PersonalPlant sb) {
+		System.out.println(sb);
 		repo.save(sb);
 		return sb;
 	}

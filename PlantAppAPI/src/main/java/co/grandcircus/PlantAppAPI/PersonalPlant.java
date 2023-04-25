@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table
 public class PersonalPlant {
@@ -11,8 +13,11 @@ public class PersonalPlant {
 	@Id
 	long id;
 	String nickname;
+	@JsonProperty("common_name")
 	String commonName;
+	@JsonProperty("scientific_name")
 	String scientificName;
+	@JsonProperty("other_name")
 	String otherName;
 	String watering;
 	Integer day;
