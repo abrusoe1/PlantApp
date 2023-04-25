@@ -46,12 +46,11 @@ export class MyPlantsComponent {
     uPlant.nickname = this.plantNickname;
     this.API.updatePersonal(uPlant).subscribe(
       (result) => {
-       }
-      )
-    }
+      }
+    )
+  }
   showForm():void{
     this.displayForm = !this.displayForm;
-  }
-
+    }
   }
 

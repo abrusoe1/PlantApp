@@ -64,8 +64,8 @@ export class PlantSearchComponent {
       if (this.data[i].watering === "Frequent"){
         this.frqArray.push(this.data[i]);
       }
-      }
     }
+  }
     
 
   loadAvg():void{
