@@ -4,5 +4,14 @@
     <p>Common Name: {{d.common_name}}</p>
     <p>Scientific Name: {{d.scientific_name}}</p>
     <p>Nickname: {{d.nickname}}</p>
-    <p>Watering: {{d.watering}}</p>
+    <button (click)="deletePersonal(d.id)">Delete Plant</button>
 </div>
+
+
+<form *ngIf="displayForm" #userForm="ngForm">
+    <label>Nickname</label>
+    <input name="nickname" type="text" [(ngModel)]="plantNickname"/>
+  
+  </form>
+  
+  <button (click)="showForm()">Change Nickname</button>
