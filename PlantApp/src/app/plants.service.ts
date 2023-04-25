@@ -44,4 +44,9 @@ export class PlantsService {
   addToPersonal(newFavorite:PersonalPlant):Observable<Object> {
     return this.http.post(this.lUrl, newFavorite);
   }
+
+  updatePersonal(updatedPlant: PersonalPlant): Observable<PersonalPlant> {
+    // For PUT, pass the body data as a second parameter after the URL
+    return this.http.put<PersonalPlant>(`${this.lUrl}/${updatedPlant.id}`, updatedPlant);
+}
 }
