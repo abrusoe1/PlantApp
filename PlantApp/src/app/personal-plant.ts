@@ -13,3 +13,11 @@ export enum Watering {
     Frequent = "Frequent",
     Minimal = "Minimal",
 }
+
+export class PersonalPlantJr {
+    displayForm:boolean = false;
+    personalPlant:PersonalPlant;
+    constructor(pl:PersonalPlant){
+        this.personalPlant = pl;
+    }
+}
