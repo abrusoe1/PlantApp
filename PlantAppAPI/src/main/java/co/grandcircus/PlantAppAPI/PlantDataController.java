@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin // Allow any website to access this API
 public class PlantDataController {
-	String filePath ="C:\\Users\\thish\\OneDrive\\Desktop\\Plant Application Final Project\\PlantApp\\Plant JSON";
+
+	String filePath ="C:\\Users\\chloe\\OneDrive\\Desktop\\PlantApp\\PlantApp\\Plant JSON";
+
 	
 	// C(R)UD -- Read One
 	@GetMapping("/data/{page}")
