@@ -7,4 +7,13 @@ p{
 form{
     text-align: center;
 }
-
+button{
+    text-align: center;
+}
+div{
+    background-color: white;
+    box-shadow: 10px 5px 5px gray;
+}
+form{
+    box-shadow: 10px 5px 5px gray;
+}
