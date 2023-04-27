@@ -1,17 +1,17 @@
 <p>My Plant List</p>
 
-<div *ngFor="let d of personalPlantData">
-    <p>Common Name: {{d.common_name}}</p>
-    <p>Scientific Name: {{d.scientific_name}}</p>
-    <p>Nickname: {{d.nickname}}</p>
-    <div *ngIf = "!displayForm">
-        <button (click)="deletePersonal(d.id)">Delete Plant</button>
-        <button (click)="showForm()">Change Nickname</button>
+<div *ngFor="let d of personalPlantDataJr; index as i">
+    <p>Common Name: {{d.personalPlant.common_name}}</p>
+    <p>Scientific Name: {{d.personalPlant.scientific_name}}</p>
+    <p>Nickname: {{d.personalPlant.nickname}}</p>
+    <div *ngIf = "!d.displayForm">
+        <button (click)="deletePersonal(d.personalPlant.id)">Delete Plant</button>
+        <button (click)="showForm(i)">Change Nickname</button>
     </div>
-    <form *ngIf="displayForm" #userForm="ngForm">
+    <form *ngIf="d.displayForm" #userForm="ngForm">
         <label>Nickname</label>
         <input name="nickname" type="text" [(ngModel)]="plantNickname"/>
-        <button (click)="showForm()" (click)="updatePersonal(d.id)">Change Nickname</button>
+        <button (click)="showForm(i)" (click)="updatePersonal(d.personalPlant.id)">Change Nickname</button>
   </form>
-</div>
+</div>  <!--Need to fix this on Thursday-->
   

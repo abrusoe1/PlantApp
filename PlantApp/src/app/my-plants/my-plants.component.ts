@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PlantsService } from '../plants.service';
 import { Datum, Plant } from '../plant';
-import { PersonalPlant } from '../personal-plant';
+import { PersonalPlant, PersonalPlantJr } from '../personal-plant';
 
 @Component({
   selector: 'app-my-plants',
@@ -11,6 +11,7 @@ import { PersonalPlant } from '../personal-plant';
 export class MyPlantsComponent {
   newPersonalPlants:PersonalPlant = ({} as any) as PersonalPlant;
   personalPlantData:PersonalPlant[] = [];
+  personalPlantDataJr:PersonalPlantJr[] = [];
   plantNickname:string = "";
   displayForm:boolean = false;
   constructor(private API:PlantsService){}
@@ -49,8 +50,7 @@ export class MyPlantsComponent {
       }
     )
   }
-  showForm():void{
-    this.displayForm = !this.displayForm;
+  showForm(i:number):void{
+    this.personalPlantDataJr[i].displayForm = !this.personalPlantDataJr[i].displayForm;
     }
   }
-
