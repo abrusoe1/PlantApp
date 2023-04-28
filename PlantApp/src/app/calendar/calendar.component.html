@@ -5,7 +5,7 @@
         <th>Sunday</th>
         <div *ngFor="let p of personalPlantData">
             <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 0) || (p.watering == 'Average' && (p.day == 0 || p.day == 2 || p.day == 4))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}};
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
@@ -13,7 +13,7 @@
         <th>Monday</th>
         <div *ngFor="let p of personalPlantData">
             <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 1) || (p.watering == 'Average' && (p.day == 1 || p.day == 3 || p.day == 5))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}}
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
@@ -21,7 +21,7 @@
         <th>Tuesday</th>
         <div *ngFor="let p of personalPlantData">
             <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 2) || (p.watering == 'Average' && (p.day == 0 || p.day == 2 || p.day == 4))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}}
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
@@ -29,7 +29,7 @@
         <th>Wednesday</th>
         <div *ngFor="let p of personalPlantData">
             <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 3) || (p.watering == 'Average' && (p.day == 1 || p.day == 3 || p.day == 5))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}}
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
@@ -37,7 +37,7 @@
         <th>Thursday</th>
         <div *ngFor="let p of personalPlantData">
             <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 4) || (p.watering == 'Average' && (p.day == 0 || p.day == 2 || p.day == 4))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}}
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
@@ -45,15 +45,15 @@
         <th>Friday</th>
         <div *ngFor="let p of personalPlantData">
             <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 5) || (p.watering == 'Average' && (p.day == 1 || p.day == 3 || p.day == 5))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}}
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
     <tr>
         <th>Saturday</th>
         <div *ngFor="let p of personalPlantData">
-            <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 6) || (p.watering == 'Average' && (p.day == 2 || p.day == 4 || p.day == 5))">
-                {{p.nickname}}; {{p.common_name}}; {{p.watering}}
+            <td *ngIf="(p.watering == 'Frequent') || (p.watering == 'Minimal' && p.day == 6) || (p.watering == 'Average' && (p.day == 2 || p.day == 4 || p.day == 6))">
+                {{p.nickname}}; {{p.common_name}}
             </td>
         </div>
     </tr>
