@@ -1,1 +1,4 @@
-html { background-color: #C9B59A; }
+html { background-color: #C9B59A; 
+}
+
+@import '~animate.css/animate.min';
