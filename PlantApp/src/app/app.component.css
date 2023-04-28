@@ -1,17 +1,49 @@
 body{
+    font-size: 120%;
     background-image: linear-gradient(to left bottom, #228b22, #009872, #009eb7, #009ee4, #6495ed);
     box-shadow: 10px 5px 5px green;
     border-radius: 1%;
     position:absolute; left: 420px; top:20px;
+    box-sizing:content-box;
+    width: 1500px;
 
 }
 
 h1{
+    background-image: linear-gradient(to top, #c9b59a, #bf9e7c, #b68760, #ac7047, #a35732);
     text-align: center;
-    color: #9DC183;
+    color: #6495ed;
     outline: 5px;
     outline-color: black;
     font-size:55px;
     font-family: cursive;
-    text-shadow: #009872;
+    text-shadow: 5px 5px 0px #eb452b, 
+          10px 10px 0px #efa032, 
+          15px 15px 0px #46b59b, 
+          20px 20px 0px #017e7f, 
+          25px 25px 0px #052939; 
+          
+    width: 600px;
+    height: 110px;
+    margin:0 auto;
+    margin-top: 10px;
 }
+
+
+/* font-size: 15rem;
+text-align: center;
+height:90vh;
+line-height: 90vh;
+color: #fcedd8;
+background: #d52e3f;
+   font-family: 'Niconne', cursive;
+font-weight: 700;
+text-shadow: 5px 5px 0px #eb452b, 
+          10px 10px 0px #efa032, 
+          15px 15px 0px #46b59b, 
+          20px 20px 0px #017e7f, 
+          25px 25px 0px #052939, 
+          30px 30px 0px #c11a2b, 
+          35px 35px 0px #c11a2b, 
+          40px 40px 0px #c11a2b, 
+          45px 45px 0px #c11a2b; */
