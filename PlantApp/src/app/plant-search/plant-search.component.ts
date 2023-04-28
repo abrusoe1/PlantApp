@@ -105,7 +105,7 @@ export class PlantSearchComponent {
   addPersonalPlant(id:number){
     for (let i = 0; i<this.data.length; i++){
       if(this.data[i].id===id){
-        this.newPersonal.nickname = "placeholder";
+        this.newPersonal.nickname = "";
         this.newPersonal.id = this.data[i].id;
         this.newPersonal.common_name = this.data[i].common_name;
 
