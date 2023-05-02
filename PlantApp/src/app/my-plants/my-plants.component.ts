@@ -24,6 +24,11 @@ export class MyPlantsComponent {
     this.API.getAllPersonal().subscribe(
       (result) => {
         this.personalPlantData = result;
+        this.personalPlantDataJr = [];
+        for (let j=0; j<result.length; j++){
+          let ppdj = new PersonalPlantJr(result[j]);
+          this.personalPlantDataJr.push(ppdj);
+        }
       }
     )
   }
