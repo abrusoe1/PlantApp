@@ -12,6 +12,7 @@ export enum Watering {
     Average = "Average",
     Frequent = "Frequent",
     Minimal = "Minimal",
+    Minimum = "Minimum"
 }
 
 export class PersonalPlantJr {
