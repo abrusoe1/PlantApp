@@ -39,12 +39,4 @@
             <button (click)="addPersonalPlant(m.id)">Add to My Plants</button>
         </div>
     </div>
-    <div *ngIf = "allIsChecked == true" >
-        <div *ngFor="let d of data">
-            <p>Common Name: {{d.common_name}}</p>
-            <p>Scientific Name: {{d.scientific_name}}</p>
-            <p>Watering: {{d.watering}}</p>
-            <button (click)="addPersonalPlant(d.id)">Add to My Plants</button>
-        </div>
-    </div>
 </body>

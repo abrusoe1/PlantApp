@@ -61,7 +61,7 @@ export class PlantSearchComponent {
 
   loadFrq(): void{
     for (let i = 1; i < this.data.length; i++){
-      if (this.data[i].watering === "Frequent"){
+      if (this.data[i].watering === "Frequent" && !this.frqArray.includes(this.data[i])){
         this.frqArray.push(this.data[i]);
       }
     }
@@ -70,7 +70,7 @@ export class PlantSearchComponent {
 
   loadAvg():void{
     for (let i = 1; i < this.data.length; i++){
-      if (this.data[i].watering === "Average"){
+      if (this.data[i].watering === "Average" && !this.avgArray.includes(this.data[i])){
         this.avgArray.push(this.data[i]);
       }
     }
@@ -78,7 +78,7 @@ export class PlantSearchComponent {
 
   loadMin():void{
     for (let i = 1; i < this.data.length; i++){
-      if (this.data[i].watering === "Minimal"){
+      if ((this.data[i].watering === "Minimal" && !this.minArray.includes(this.data[i])) || (this.data[i].watering === "Minimum" && !this.minArray.includes(this.data[i]))){
         this.minArray.push(this.data[i])
       }
     }
@@ -94,9 +94,6 @@ export class PlantSearchComponent {
     else if (this.minIsChecked === true){
       this.loadMin()
     }
-    else if (this.allIsChecked === true){
-      this.loadPages();
-    }
     else {
       console.log("How did you get here?");
     }
@@ -105,7 +102,7 @@ export class PlantSearchComponent {
   addPersonalPlant(id:number){
     for (let i = 0; i<this.data.length; i++){
       if(this.data[i].id===id){
-        this.newPersonal.nickname = "placeholder";
+        this.newPersonal.nickname = "";
         this.newPersonal.id = this.data[i].id;
         this.newPersonal.common_name = this.data[i].common_name;
 

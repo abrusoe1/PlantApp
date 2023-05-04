@@ -1,0 +1,15 @@
+p{
+    color: black;
+    text-align: center;
+    font-size: 200%;
+    justify-content: center;
+}
+
+div{
+    
+    background-color: white;
+    box-shadow: 10px 5px 5px gray;
+    width: 600px;
+    margin:0 auto;
+}
+
