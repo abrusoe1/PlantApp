@@ -10,8 +10,8 @@
     </div>
     <form *ngIf="d.displayForm" #userForm="ngForm">
         <label>Nickname</label>
-        <input name="nickname" type="text" [(ngModel)]="plantNickname"/>
-        <button (click)="showForm(i)" (click)="updatePersonal(d.personalPlant.id)">Change Nickname</button>
+        <input name="nickname" type="text" [(ngModel)]="d.personalPlant.nickname"/>
+        <button (click)="updatePersonal(d.personalPlant.id)" (click)="showForm(i)">Change Nickname</button>
   </form>
 </div>  <!--Need to fix this-->
   
