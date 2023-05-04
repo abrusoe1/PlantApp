@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { PlantsService } from '../plants.service';
 import { Datum, Plant, Watering } from '../plant';
 import { PersonalPlant } from '../personal-plant';
+import allPlants from '../plant-data';
 
 @Component({
   selector: 'app-plant-search',
@@ -29,20 +30,21 @@ export class PlantSearchComponent {
 
 
   loadPages():void{
-    for(let i = 1; i<101; i++){
-    this.API.getPage(i).subscribe(
-      (result) => {
-        this.plants.push(result);
-       //console.log(this.plants.length);
-       for(let i = 0; i<this.plants.length; i++){
-         for(let j = 0; j<this.plants[i].data.length;j++){
-          this.data.push(this.plants[i].data[j]);
-       }
-      }
-    }
-  )
+    this.data = allPlants as any;
+    // for(let i = 1; i<101; i++){
+    // this.API.getPage(i).subscribe(
+    //   (result) => {
+    //     this.plants.push(result);
+    //    //console.log(this.plants.length);
+      //  for(let i = 0; i<this.plants.length; i++){
+      //    for(let j = 0; j<this.plants[i].data.length;j++){
+      //     this.data.push(this.plants[i].data[j]);
+      //  }
+     //}
+    // }
+ // )
 }
-}
+//}
 
 
   // loadPages():void{
