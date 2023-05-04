@@ -1,4 +1,5 @@
 html { background-color: #C9B59A; 
+    margin:0 auto;
 }
 
 @import '~animate.css/animate.min';

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { PlantsService } from '../plants.service';
 import { Datum, Plant, Watering } from '../plant';
 import { PersonalPlant } from '../personal-plant';
+import allPlants from '../plant-data';
 
 @Component({
   selector: 'app-plant-search',
@@ -29,20 +30,21 @@ export class PlantSearchComponent {
 
 
   loadPages():void{
-    for(let i = 1; i<101; i++){
-    this.API.getPage(i).subscribe(
-      (result) => {
-        this.plants.push(result);
-       //console.log(this.plants.length);
-       for(let i = 0; i<this.plants.length; i++){
-         for(let j = 0; j<this.plants[i].data.length;j++){
-          this.data.push(this.plants[i].data[j]);
-       }
-      }
-    }
-  )
+    this.data = allPlants as any;
+    // for(let i = 1; i<101; i++){
+    // this.API.getPage(i).subscribe(
+    //   (result) => {
+    //     this.plants.push(result);
+    //    //console.log(this.plants.length);
+      //  for(let i = 0; i<this.plants.length; i++){
+      //    for(let j = 0; j<this.plants[i].data.length;j++){
+      //     this.data.push(this.plants[i].data[j]);
+      //  }
+     //}
+    // }
+ // )
 }
-}
+//}
 
 
   // loadPages():void{
@@ -61,7 +63,7 @@ export class PlantSearchComponent {
 
   loadFrq(): void{
     for (let i = 1; i < this.data.length; i++){
-      if (this.data[i].watering === "Frequent"){
+      if (this.data[i].watering === "Frequent" && !this.frqArray.includes(this.data[i])){
         this.frqArray.push(this.data[i]);
       }
     }
@@ -70,7 +72,7 @@ export class PlantSearchComponent {
 
   loadAvg():void{
     for (let i = 1; i < this.data.length; i++){
-      if (this.data[i].watering === "Average"){
+      if (this.data[i].watering === "Average" && !this.avgArray.includes(this.data[i])){
         this.avgArray.push(this.data[i]);
       }
     }
@@ -78,7 +80,7 @@ export class PlantSearchComponent {
 
   loadMin():void{
     for (let i = 1; i < this.data.length; i++){
-      if (this.data[i].watering === "Minimal"){
+      if ((this.data[i].watering === "Minimal" && !this.minArray.includes(this.data[i])) || (this.data[i].watering === "Minimum" && !this.minArray.includes(this.data[i]))){
         this.minArray.push(this.data[i])
       }
     }
@@ -93,9 +95,6 @@ export class PlantSearchComponent {
     }
     else if (this.minIsChecked === true){
       this.loadMin()
-    }
-    else if (this.allIsChecked === true){
-      this.loadPages();
     }
     else {
       console.log("How did you get here?");
