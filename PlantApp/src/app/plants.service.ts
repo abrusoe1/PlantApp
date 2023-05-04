@@ -8,7 +8,7 @@ import { PersonalPlant } from './personal-plant';
   providedIn: 'root'
 })
 export class PlantsService {
-  url:string = "http://localhost:8080/data"
+  url:string = "https://d3ogc92dx6hhxg.cloudfront.net/data"
   constructor(private http:HttpClient) { }
 
   // getAllPlantNames():Observable<Datum[]> {
@@ -25,7 +25,7 @@ export class PlantsService {
 
   //-------------------------------------------------------
 
-  lUrl:string = "http://localhost:8080/plants"  //Short for local URL
+  lUrl:string = "https://d3ogc92dx6hhxg.cloudfront.net/plants"  //Short for local URL
 
   getAllPersonal():Observable<PersonalPlant[]> {
     return this.http.get<PersonalPlant[]> (this.lUrl); 
